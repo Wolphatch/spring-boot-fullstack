@@ -1,0 +1,1 @@
+alter table if exists customer  add constraint customer_email_unique unique (email);
