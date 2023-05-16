@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "zhiconghu-api",
-      "image": "zachuaus/zhiconghu-api:latest",
+      "image": "zachuaus/zhiconghu-api:16.05.2023.06.49.11",
       "essential": true,
       "memory": 512,
       "portMappings": [
