@@ -29,6 +29,9 @@ jobs:
         working-directory: ./backend
     steps:
       - uses: actions/checkout@v3
+      - name: Echo commit message and sha
+        run: >
+          echo "github: https://github.com/Wolphatch/spring-boot-fullstack/commit/${{ github.sha }} - ${{ github.event.head_commit.message }}"
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
