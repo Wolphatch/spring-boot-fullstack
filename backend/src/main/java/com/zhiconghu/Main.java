@@ -31,7 +31,8 @@ public class Main {
             Customer customer = new Customer(
                     firstName +  " " + lastName,
                     firstName.toLowerCase() + "." + lastName.toLowerCase() + "@amigoscode.com",
-                    random.nextInt(16, 99)
+                    random.nextInt(16, 99),
+                    random.nextBoolean()?"male":"female"
             );
             customerRepository.save(customer);
         };

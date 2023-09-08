@@ -39,16 +39,37 @@ public class Customer {
     )
     private  Integer age;
 
+    @Column(
+            nullable = true
+    )
+    private String gender;
+
+    public Customer(Integer id, String name, String email,  Integer age, String gender) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
     public Customer(Integer id, String name, String email,  Integer age) {
         this.id = id;
         this.email = email;
         this.name = name;
         this.age = age;
     }
+
     public Customer( String name, String email,  Integer age) {
         this.email = email;
         this.name = name;
         this.age = age;
+    }
+
+    public Customer( String name, String email,  Integer age, String gender) {
+        this.email = email;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
     }
 
     public Customer(){
@@ -87,17 +108,29 @@ public class Customer {
         this.age = age;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(id, customer.id) && Objects.equals(email, customer.email) && Objects.equals(name, customer.name) && Objects.equals(age, customer.age);
+        return Objects.equals(id, customer.id) &&
+                Objects.equals(email, customer.email) &&
+                Objects.equals(name, customer.name) &&
+                Objects.equals(age, customer.age) &&
+                Objects.equals(gender, customer.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email, name, age);
+        return Objects.hash(id, email, name, age, gender);
     }
 
     @Override
@@ -106,7 +139,8 @@ public class Customer {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
-                ", age=" + age +
+                ", age=" + age + '\'' +
+                ", gender=" + gender + '\'' +
                 '}';
     }
 }

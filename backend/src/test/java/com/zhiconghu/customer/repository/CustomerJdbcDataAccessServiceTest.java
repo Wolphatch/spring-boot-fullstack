@@ -33,12 +33,26 @@ class CustomerJdbcDataAccessServiceTest extends AbstractTestContainers {
     @Test
     void selectAllCustomers() {
         // Given
-        Customer customer = new Customer(
+        Customer customer1 = new Customer(
+                faker.name().fullName(),
+                faker.internet().safeEmailAddress() + "-" + UUID.randomUUID(),
+                20,
+                "male"
+        );
+        Customer customer2 = new Customer(
+                faker.name().fullName(),
+                faker.internet().safeEmailAddress() + "-" + UUID.randomUUID(),
+                20,
+                "female"
+        );
+        Customer customer3 = new Customer(
                 faker.name().fullName(),
                 faker.internet().safeEmailAddress() + "-" + UUID.randomUUID(),
                 20
         );
-        underTest.insertCustomer(customer);
+        underTest.insertCustomer(customer1);
+        underTest.insertCustomer(customer2);
+        underTest.insertCustomer(customer3);
 
         // When
        List<Customer> customers = underTest.selectAllCustomers();
@@ -54,7 +68,8 @@ class CustomerJdbcDataAccessServiceTest extends AbstractTestContainers {
         Customer customer = new Customer(
                 faker.name().fullName(),
                 email,
-                20
+                20,
+                "male"
         );
 
         underTest.insertCustomer(customer);
@@ -75,6 +90,7 @@ class CustomerJdbcDataAccessServiceTest extends AbstractTestContainers {
             assertThat(c.getName()).isEqualTo(customer.getName());
             assertThat(c.getAge()).isEqualTo(customer.getAge());
             assertThat(c.getEmail()).isEqualTo(customer.getEmail());
+            assertThat(c.getGender()).isEqualTo(customer.getGender());
         });
 
     }

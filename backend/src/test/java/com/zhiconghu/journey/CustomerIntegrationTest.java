@@ -36,9 +36,10 @@ public class CustomerIntegrationTest {
         Name fakerName = faker.name();
         String name = fakerName.fullName();
         String email = fakerName.lastName()+ UUID.randomUUID() + "@gmail.com";
+        String gender = "male";
         int age = RANDOM.nextInt(1,100);
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-            name, email, age
+            name, email, age, gender
         );
 
         // send a post request
@@ -64,7 +65,7 @@ public class CustomerIntegrationTest {
                 .getResponseBody();
 
         Customer expectedCustomer = new Customer(
-                name, email, age
+                name, email, age, gender
         );
 
         assertThat(allCustomers)
@@ -101,8 +102,9 @@ public class CustomerIntegrationTest {
         String name = fakerName.fullName();
         String email = fakerName.lastName()+ UUID.randomUUID() + "@gmail.com";
         int age = RANDOM.nextInt(1,100);
+        String gender = "male";
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-                name, email, age
+                name, email, age, gender
         );
 
         // send a post request
