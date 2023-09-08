@@ -93,7 +93,8 @@ class CustomerServiceTest {
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
                 "alex",
                 email,
-                19
+                19,
+                "male"
         );
 
         // When
@@ -120,7 +121,8 @@ class CustomerServiceTest {
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
                 "alex",
                 email,
-                12
+                12,
+                "male"
         );
 
         assertThatThrownBy(()->underTest.addCustomer(request))
@@ -136,7 +138,8 @@ class CustomerServiceTest {
         CustomerUpdateRequest request = new CustomerUpdateRequest(
                 "updated alex",
                 "updated email",
-                22
+                22,
+                "male"
         );
         Customer customer = new Customer(
                 id,
@@ -167,7 +170,8 @@ class CustomerServiceTest {
         CustomerUpdateRequest request = new CustomerUpdateRequest(
                 "updated alex",
                 "updated email",
-                22
+                22,
+                "male"
         );
         when(customerDao.whetherIdExist(id)).thenReturn(false);
         // When

@@ -56,6 +56,9 @@ const App = ()=>{
     <SideBarWithHeader>
       <Wrap justify={"center"} spacing={"30px"}>
         {customers.map((customer, index)=>{
+          if (customer.gender === null){
+            customer.gender='male'
+          }
           return (
             <WrapItem key={index}>
               <CardWithImage {...customer}/>
