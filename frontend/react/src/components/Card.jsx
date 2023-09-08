@@ -55,21 +55,6 @@ export default function CardWithImage({id, name, email, age}) {
             <Text color={'gray.500'}>Age {age}</Text>
           </Stack>
 
-          <Stack direction={'row'} justify={'center'} spacing={6}>
-            <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>23k</Text>
-              <Text fontSize={'sm'} color={'gray.500'}>
-                Followers
-              </Text>
-            </Stack>
-            <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>23k</Text>
-              <Text fontSize={'sm'} color={'gray.500'}>
-                Followers
-              </Text>
-            </Stack>
-          </Stack>
-
           <Button
             w={'full'}
             mt={8}
