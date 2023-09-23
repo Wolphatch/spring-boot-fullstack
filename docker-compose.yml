@@ -24,6 +24,19 @@ services:
       - db
     depends_on:
       - db
+  frontend-react:
+    container_name: zachuaus-react
+    image: zachuaus/zachuaus-react:latest
+    build:
+      context: frontend/react # build from local dockerfile
+    ports:
+     - 3000:5173
+    networks:
+      - db
+    depends_on:
+      - zhiconghu-api
+    restart: unless-stopped
+
 networks:
   db:
     driver: bridge

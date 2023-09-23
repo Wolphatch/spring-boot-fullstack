@@ -21,7 +21,7 @@ import {errorNotification, successNotification} from "../services/notification.j
 import UpdateCustomerDrawer from "./customer/UpdateCustomerDrawer.jsx";
 
 export default function CardWithImage({id, name, email, age, gender, imageNumber, fetchCustomers}) {
-    const randomUserGender = gender === "MALE" ? "men" : "women";
+    const randomUserGender = gender === "male" ? "men" : "women";
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = useRef()
