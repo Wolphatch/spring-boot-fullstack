@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
   zhiconghu-api:
     container_name: zhiconghu-api
-    image: zhiconghu/zhiconghu-api
+    image: zachuaus/zhiconghu-api
     environment:
       SPRING_DATASOURCE_URL: "jdbc:postgresql://db:5432/customer" #需要连接db container
     ports:
